@@ -1,5 +1,5 @@
 
-package com.bridgelabz.Uc3;
+package com.bridgelabz.Uc4;
 
 import java.util.Scanner;
 
@@ -17,6 +17,7 @@ public class TicTacToeGame
         createEmptyBoard();
         chooseLetter();
         showBoard();
+        makeMove();
     }
     /**UC1
      *  createEmptyBoard
@@ -48,8 +49,8 @@ public class TicTacToeGame
     }
 
     /**UC3
-     * showBoard
-     *method to display current board
+     *  showBoard
+     * method to display current board
      * it prints the every element in board array using println method.
      */
     private static void showBoard()
@@ -59,5 +60,34 @@ public class TicTacToeGame
         System.out.println( board[4] + " | " + board[5] + " | " + board[6] );
         System.out.println("----------");
         System.out.println( board[7] + " | " + board[8] + " | " + board[9] );
+    }
+    /**
+     * UC4
+     *  makeMove
+     *  method to make user to move to desired location
+     *  It takes user input from index 1 to 9. If you enter invalid index or try to move
+     * to occupied position it prints error message else it moves the user letter to desired location.
+     */
+    private static void makeMove()
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose your location(1-9): ");
+        int position = scanner.nextInt();
+        if (position > 9 && position < 1)
+        {
+            System.err.println("Enter a valid location b/w 1 to 9");
+            makeMove();
+        }
+        else if (board[position] != ' ')
+        {
+            System.err.println("You already chosen this! Enter a valid location");
+            makeMove();
+        }
+        else
+        {
+            board[position] = userLetter;
+            showBoard();
+            makeMove();
+        }
     }
 }
