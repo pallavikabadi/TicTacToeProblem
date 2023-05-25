@@ -1,4 +1,4 @@
-ipackage com.bridgelabz.Uc1;
+package com.bridgelabz.Uc1;
 
 /**
  * Class to create ticktactoe game with different methods
